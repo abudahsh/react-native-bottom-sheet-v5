@@ -142,13 +142,13 @@ const BottomSheetModalComponent = forwardRef<
     }
     bottomSheetRef.current?.snapToPosition(...args);
   }, []);
-  const handleExpand = useCallback<BottomSheetMethods['expand']>((...args) => {
+  const handleExpand: BottomSheetMethods['expand'] = useCallback((...args) => {
     if (minimized.current) {
       return;
     }
     bottomSheetRef.current?.expand(...args);
   }, []);
-  const handleCollapse = useCallback<BottomSheetMethods['collapse']>(
+  const handleCollapse: BottomSheetMethods['collapse'] = useCallback(
     (...args) => {
       if (minimized.current) {
         return;
@@ -157,13 +157,13 @@ const BottomSheetModalComponent = forwardRef<
     },
     []
   );
-  const handleClose = useCallback<BottomSheetMethods['close']>((...args) => {
+  const handleClose: BottomSheetMethods['close'] = useCallback((...args) => {
     if (minimized.current) {
       return;
     }
     bottomSheetRef.current?.close(...args);
   }, []);
-  const handleForceClose = useCallback<BottomSheetMethods['forceClose']>(
+  const handleForceClose: BottomSheetMethods['forceClose'] = useCallback(
     (...args) => {
       if (minimized.current) {
         return;
@@ -387,9 +387,7 @@ const BottomSheetModalComponent = forwardRef<
         containerOffset={containerOffset}
         onChange={handleBottomSheetOnChange}
         onClose={handleBottomSheetOnClose}
-        children={
-          typeof Content === 'function' ? <Content data={data} /> : Content
-        }
+        children={typeof Content === 'function' ? Content({ data }) : Content}
         $modal={true}
       />
     </Portal>
