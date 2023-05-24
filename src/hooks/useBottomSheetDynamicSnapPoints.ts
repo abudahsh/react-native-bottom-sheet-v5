@@ -40,6 +40,11 @@ export const useBottomSheetDynamicSnapPoints = (
     );
   }, []);
 
+  type HandleContentLayoutProps = {
+    nativeEvent: {
+      layout: { height: number };
+    };
+  };
   // callbacks
   const handleContentLayout = useCallback(
     ({

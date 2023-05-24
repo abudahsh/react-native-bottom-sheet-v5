@@ -82,6 +82,14 @@
       "optional": true
     }
   },
+  "peerDependenciesMeta": {
+    "@types/react-native": {
+      "optional": true
+    },
+    "@types/react": {
+      "optional": true
+    }
+  },
   "react-native-builder-bob": {
     "source": "src",
     "output": "lib",
